@@ -1,0 +1,27 @@
+{
+    "warning": {
+        "townID": 6703500,
+        "alertIntensity": 2,
+        "applySiteEffect": true,
+        "popupWindow": true,
+        "popupNotification": true,
+        "playSound": false,
+        "alwaysOnTop": true,
+        "showPWave": true,
+        "smoothWave": false,
+        "defaultSound": "0",
+        "customSound": null
+    },
+    "report": {
+        "popupWindow": false,
+        "popupNotification": false,
+        "playSound": false,
+        "showIntensity": true,
+        "customSound": null
+    },
+    "autorun": true,
+    "autoDownload": false,
+    "connectPath": "/config/oxwu/notify.sh",
+    "connectOnce": true,
+    "scale": 0.75
+}
