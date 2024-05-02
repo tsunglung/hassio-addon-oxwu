@@ -1,9 +1,10 @@
 name: "OX Wake Up"
 description: "OX Wake up add-on!"
-version: "1.0.0"
+version: "1.0.1"
 codenotary: tsunglung@github.com
 description: Home Assistant Add-on for OXWU, the earthquake alert
 url: https://github.com/tsunglung/hassio-addon-oxwu
+image: tsunglung/oxwu
 slug: "oxwu"
 init: false
 arch:
@@ -13,6 +14,9 @@ ports:
 ports_description:
   6901/tcp: VNC server port
 apparmor: false
+ingress: false
+ingress_port: 6901
+ingress_stream: true
 map:
   - config:rw
 usb: true
@@ -25,4 +29,3 @@ privileged:
   - SYS_RAWIO
   - SYS_TIME
   - SYS_NICE
-
