@@ -1,6 +1,6 @@
 name: "OX Wake Up"
 description: "OX Wake up add-on!"
-version: "1.0.3"
+version: "1.0.4"
 codenotary: tsunglung@github.com
 description: Home Assistant Add-on for OXWU, the earthquake alert
 url: https://github.com/tsunglung/hassio-addon-oxwu
@@ -18,10 +18,12 @@ apparmor: false
 ingress: false
 ingress_port: 6901
 ingress_stream: true
+host_dbus: true
 map:
   - config:rw
-  - homeassistant_config:rw
-  - addon_config:rw
+  - media:rw
+  - share:rw
+  - ssl:ro
 usb: true
 devices:
   - /dev/input

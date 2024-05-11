@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.4
+
+- Fixed the permission of config in aarch64 container
+
 ## 1.0.3
 
 - Add aarch64 support
