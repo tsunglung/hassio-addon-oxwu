@@ -1,6 +1,6 @@
 name: "OX Wake Up"
 description: "OX Wake up add-on!"
-version: "1.0.4"
+version: "1.0.5"
 codenotary: tsunglung@github.com
 description: Home Assistant Add-on for OXWU, the earthquake alert
 url: https://github.com/tsunglung/hassio-addon-oxwu
@@ -34,3 +34,11 @@ privileged:
   - SYS_RAWIO
   - SYS_TIME
   - SYS_NICE
+options:
+  oxwu_town_name: ""
+  oxwu_town_id: ""
+  oxwu_alert_intensity: 2
+schema:
+  oxwu_town_name: "str?"
+  oxwu_town_id: "str?"
+  oxwu_alert_intensity: int(0,8)?

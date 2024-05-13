@@ -9,15 +9,15 @@ configuration:
     description: >-
       The token of LINE notify that used to notify by LINE.
   oxwu_town_name:
-    name: Town Name
+    name: 鄉鎮區的名稱
     description: >-
-      The town name that you want have the earthquake alert to.
+      地震警告的鄉鎮區名稱.
   oxwu_town_id:
-    name: Town ID
+    name: 鄉鎮區的 ID
     description: >-
-      The town ID that you want have the earthquake alert to.
+      地震警告的鄉鎮區 ID.
   oxwu_alert_intensity:
     name: Alert Intensity
     description: >-
-      The intensity of the earthquak alert.
+      地震警告的強度.
 
