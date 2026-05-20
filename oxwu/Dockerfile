@@ -14,15 +14,28 @@ FROM tsunglung/oxwu:1.0.5
 WORKDIR /opt
 
 # 1. Extract AppImage so we can invoke AppRun directly
-RUN /Applications/oxwu-linux-x86_64.AppImage --appimage-extract && \
-    mv squashfs-root oxwu-extracted && \
-    chmod -R a+rX oxwu-extracted && \
-    rm -f /opt/oxwu-extracted/chrome-sandbox && \
-    chown -R kasm-user:root /opt/oxwu-extracted
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+        /Applications/oxwu-linux-armv7l.AppImage --appimage-extract && \
+        mv squashfs-root oxwu-extracted && \
+        chmod -R a+rX oxwu-extracted && \
+        rm -f /opt/oxwu-extracted/chrome-sandbox && \
+        chown -R kasm-user:root /opt/oxwu-extracted; \
+    else \
+        /Applications/oxwu-linux-x86_64.AppImage --appimage-extract && \
+        mv squashfs-root oxwu-extracted && \
+        chmod -R a+rX oxwu-extracted && \
+        rm -f /opt/oxwu-extracted/chrome-sandbox && \
+        chown -R kasm-user:root /opt/oxwu-extracted; \
+    fi;
 
 # 2. Disable original AppImage path (avoid any code path bypassing our patch)
-RUN mv /Applications/oxwu-linux-x86_64.AppImage \
-       /Applications/oxwu-linux-x86_64.AppImage.disabled
+RUN if [ "$TARGETARCH" = "arm64" ]; then \
+        mv /Applications/oxwu-linux-armv7l.AppImage \
+        /Applications/oxwu-linux-x86_64.AppImage.disabled; \
+    else \
+        mv /Applications/oxwu-linux-armv7l.AppImage \
+        /Applications/oxwu-linux-armv7l.AppImage.disabled; \
+    fi;
 
 # 3. Replace kasm's startup script with one that uses runuser + --no-sandbox
 COPY custom_startup.sh /dockerstartup/custom_startup.sh
